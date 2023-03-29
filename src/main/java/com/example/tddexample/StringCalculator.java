@@ -29,8 +29,8 @@ public class StringCalculator {
 
                 if (tempNum < 0) {
                     negativeNumbers.add(tempNum);
-                }
-                num += tempNum;
+                } else if (tempNum<= 1000)
+                    num += tempNum;
             }
         }
 
