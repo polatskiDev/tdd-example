@@ -9,11 +9,6 @@ import org.junit.jupiter.api.Test;
 public class StringCalculatorTest {
 
     @Test
-    public final void whenMoreThan2NumbersAreUsedThenExceptionIsThrown(){
-        Assertions.assertThrows(RuntimeException.class, () -> StringCalculator.add("1,2,3"));
-    }
-
-    @Test
     public final void when2NumbersAreUsedThenNoExceptionIsThrown() {
         StringCalculator.add("1,2");
         Assertions.assertTrue(true);
@@ -37,5 +32,10 @@ public class StringCalculatorTest {
     @Test
     public final void whenTwoNumbersAreUsedThenReturnValueIsTheirSum() {
         Assertions.assertEquals(3 + 6, StringCalculator.add("3,6"));
+    }
+
+    @Test
+    public final void whenAnyNumberOfNumbersIsUsedThenReturnValuesAreTheirSums() {
+        Assertions.assertEquals(3+6+15+18+46+33, StringCalculator.add("3,6,15,18,46,33"));
     }
 }
