@@ -7,7 +7,7 @@ public class StringCalculator {
 
     public static int add(final String numbers) {
         int num = 0;
-        String [] numArray = numbers.split(",");
+        String [] numArray = numbers.split("[,n]");
 
         for (String number : numArray) {
             if (!number.isBlank())

@@ -38,4 +38,9 @@ public class StringCalculatorTest {
     public final void whenAnyNumberOfNumbersIsUsedThenReturnValuesAreTheirSums() {
         Assertions.assertEquals(3+6+15+18+46+33, StringCalculator.add("3,6,15,18,46,33"));
     }
+
+    @Test
+    public final void whenNewLineIsUsedBetweenNumbersThenReturnValuesAsTheirSums() {
+        Assertions.assertEquals(3+6+15, StringCalculator.add("3,6n15"));
+    }
 }
