@@ -48,4 +48,21 @@ public class StringCalculatorTest {
     public final void whenDelimiterIsSpecifiedThenItIsUsedToSeparateNumbers() {
         Assertions.assertEquals(3+6+15, StringCalculator.add("//;n3;6;15"));
     }
+
+    @Test
+    public final void whenNegativeNumberIsUsedThenRuntimeExceptionIsThrown() {
+        Assertions.assertThrows(RuntimeException.class, () -> StringCalculator.add("3,-6,15,18,46,33"));
+    }
+
+    @Test
+    public final void whenNegativeNumbersAreUsedThenRuntimeExceptionIsThrown() {
+        RuntimeException exception = null;
+        try {
+            StringCalculator.add("3,-6,15,-18,46,33");
+        } catch (RuntimeException e) {
+            exception = e;
+        }
+        Assertions.assertNotNull(exception);
+        Assertions.assertEquals("Negatives not allowed: [-6, -18]", exception.getMessage());
+    }
 }
