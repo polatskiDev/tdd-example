@@ -80,4 +80,9 @@ public class StringCalculatorTest {
     public final void whenMultipleDelimitersUsedThenTheyAreUsedToSeparateNumbers() {
         Assertions.assertEquals(1+2+3, StringCalculator.add("//[-][%]\\n1-2%3"));
     }
+
+    @Test
+    public final void whenMultipleDemilitersWithLengthLongerThanOneCharThenTheyAreUsedToSeparateNumbers() {
+        Assertions.assertEquals(1+2+3, StringCalculator.add("//[-+][%%]\\n1-+2%%3"));
+    }
 }
