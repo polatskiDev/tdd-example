@@ -12,8 +12,8 @@ public class StringCalculator {
         String delimiter = ",|n";
         String numbersWithoutDelimiter = numbers;
         if (numbers.startsWith("//")) {
-            int delimiterIndex = numbers.indexOf("//") + 3;
-            delimiter = numbers.substring(delimiterIndex, numbers.indexOf("]"));
+
+            delimiter = findDelimiter(numbers);
             numbersWithoutDelimiter = numbers.substring(numbers.indexOf("n") + 1);
         }
         return add(numbersWithoutDelimiter,delimiter);
@@ -39,5 +39,15 @@ public class StringCalculator {
         }
 
         return num;
+    }
+
+    private static String findDelimiter(String numbers) {
+        StringBuilder multiDelimiter = new StringBuilder();
+        String subStr = numbers;
+        while (subStr.contains("[")) {
+            subStr = subStr.substring(subStr.indexOf("[") +1);
+            multiDelimiter.append(subStr, 0, subStr.indexOf("]")).append("|");
+        }
+       return multiDelimiter.substring(0, multiDelimiter.length() -1);
     }
 }
