@@ -23,4 +23,9 @@ public class StringCalculatorTest {
     public final void whenNonNumberIsUsedThenExceptionIsThrown() {
         Assertions.assertThrows(RuntimeException.class, () -> StringCalculator.add("1,X"));
     }
+
+    @Test
+    public final void whenEmptyStringIsUsedThenReturnValueIs0() {
+        Assertions.assertEquals(0, StringCalculator.add(""));
+    }
 }

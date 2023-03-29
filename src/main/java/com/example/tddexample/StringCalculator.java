@@ -5,14 +5,16 @@ package com.example.tddexample;
  */
 public class StringCalculator {
 
-    public static void add(final String numbers) {
+    public static int add(final String numbers) {
         String [] numArray = numbers.split(",");
         if (numArray.length > 2) {
             throw new RuntimeException("Up to 2 numbers separated by comma(,) are allowed");
         } else {
             for (String number : numArray) {
-                Integer.parseInt(number);
+                if (!number.isEmpty())
+                    Integer.parseInt(number);
             }
         }
+        return 0;
     }
 }
